@@ -3,7 +3,6 @@
 node_modules/
 plugin-examples/
 .husky/
-src/
 .eslintrc.js
 .prettierrc.js
 .eslintignore
