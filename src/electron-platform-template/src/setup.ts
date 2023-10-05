@@ -217,17 +217,14 @@ export class ElectronCapacitorApp {
 }
 
 // Set a CSP up for our application based on the custom scheme
-export function setupContentSecurityPolicy(customScheme: string): void {
-  /*session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+export function setupCSPHeaders(customScheme: string): void {
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
     callback({
       responseHeaders: {
         ...details.responseHeaders,
-        'Content-Security-Policy': [
-          electronIsDev
-            ? `default-src ${customScheme}://!* 'unsafe-eval' 'unsafe-inline' devtools://!* 'unsafe-eval' data:`
-            : `default-src ${customScheme}://!* 'unsafe-eval' 'unsafe-inline' data:`,
-        ],
+        'Cross-Origin-Opener-Policy': 'same-origin',
+        'Cross-Origin-Embedder-Policy': 'require-corp'
       },
     });
-  });*/
+  });
 }
